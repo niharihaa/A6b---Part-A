@@ -1,0 +1,573 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={ARCH-and-GARCH.R},
+  pdfauthor={Nihariha Kamal},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{ARCH-and-GARCH.R}
+\author{Nihariha Kamal}
+\date{2024-07-25}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Install necessary packages if not already installed}
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(quantmod)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"quantmod"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: quantmod
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: xts
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: zoo
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'zoo'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: TTR
+\end{verbatim}
+
+\begin{verbatim}
+## Registered S3 method overwritten by 'quantmod':
+##   method            from
+##   as.zoo.data.frame zoo
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(tseries)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tseries"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tseries
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(FinTS)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"FinTS"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: FinTS
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(rugarch)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"rugarch"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: rugarch
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: parallel
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'rugarch'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:stats':
+## 
+##     sigma
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Load the libraries}
+\FunctionTok{library}\NormalTok{(quantmod)}
+\FunctionTok{library}\NormalTok{(tseries)}
+\FunctionTok{library}\NormalTok{(FinTS)}
+\FunctionTok{library}\NormalTok{(rugarch)}
+
+\CommentTok{\# Define the ticker symbol and the date range}
+\NormalTok{ticker }\OtherTok{\textless{}{-}} \StringTok{"HUDCO.NS"}
+\NormalTok{start\_date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2019{-}04{-}01"}\NormalTok{)}
+\NormalTok{end\_date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\StringTok{"2024{-}03{-}31"}\NormalTok{)}
+
+\CommentTok{\# Download the data}
+\FunctionTok{getSymbols}\NormalTok{(ticker, }\AttributeTok{src =} \StringTok{"yahoo"}\NormalTok{, }\AttributeTok{from =}\NormalTok{ start\_date, }\AttributeTok{to =}\NormalTok{ end\_date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "HUDCO.NS"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hudco\_data }\OtherTok{\textless{}{-}} \FunctionTok{get}\NormalTok{(ticker)}
+
+\CommentTok{\# Display the first few rows of the data}
+\FunctionTok{head}\NormalTok{(hudco\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            HUDCO.NS.Open HUDCO.NS.High HUDCO.NS.Low HUDCO.NS.Close
+## 2019-04-01         45.30         46.75        45.10          45.75
+## 2019-04-02         45.75         46.00        45.25          45.75
+## 2019-04-03         46.00         46.55        45.05          45.20
+## 2019-04-04         45.05         45.30        44.60          44.80
+## 2019-04-05         44.70         45.60        44.70          45.10
+## 2019-04-08         45.00         46.20        44.65          44.85
+##            HUDCO.NS.Volume HUDCO.NS.Adjusted
+## 2019-04-01         1444688          33.41637
+## 2019-04-02          637084          33.41637
+## 2019-04-03          957089          33.01464
+## 2019-04-04          538443          32.72248
+## 2019-04-05          490880          32.94160
+## 2019-04-08          832500          32.75900
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Check for missing values}
+\NormalTok{missing\_values }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(hudco\_data))}
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Total number of missing values:"}\NormalTok{, missing\_values))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Total number of missing values: 0"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the adjusted closing price for the entire period}
+\FunctionTok{plot}\NormalTok{(hudco\_data}\SpecialCharTok{$}\NormalTok{HUDCO.NS.Adjusted, }\AttributeTok{main =} \StringTok{"HUDCO Adjusted Closing Prices (2019{-}2024)"}\NormalTok{, }
+     \AttributeTok{ylab =} \StringTok{"Adjusted Price"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Date"}\NormalTok{, }\AttributeTok{col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 4: Calculate Returns (Using Adjusted Prices)}
+\NormalTok{hudco\_returns }\OtherTok{\textless{}{-}} \FunctionTok{dailyReturn}\NormalTok{(hudco\_data}\SpecialCharTok{$}\NormalTok{HUDCO.NS.Adjusted, }\AttributeTok{type =} \StringTok{"log"}\NormalTok{) }\SpecialCharTok{*} \DecValTok{100}
+\FunctionTok{names}\NormalTok{(hudco\_returns) }\OtherTok{\textless{}{-}} \StringTok{"Returns"}
+
+\CommentTok{\# Plot the returns}
+\FunctionTok{plot}\NormalTok{(hudco\_returns, }\AttributeTok{main =} \StringTok{"HUDCO Daily Returns (Adjusted Prices)"}\NormalTok{, }
+     \AttributeTok{ylab =} \StringTok{"Returns (\%)"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Date"}\NormalTok{, }\AttributeTok{col =} \StringTok{"green"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 5: Check for ARCH Effects}
+\CommentTok{\# Perform ARCH test}
+\NormalTok{arch\_test }\OtherTok{\textless{}{-}} \FunctionTok{ArchTest}\NormalTok{(hudco\_returns, }\AttributeTok{lags =} \DecValTok{12}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(arch\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  ARCH LM-test; Null hypothesis: no ARCH effects
+## 
+## data:  hudco_returns
+## Chi-squared = 52.159, df = 12, p-value = 5.811e-07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 6: Fit an ARCH Model and Plot Conditional Volatility}
+\NormalTok{spec\_arch }\OtherTok{\textless{}{-}} \FunctionTok{ugarchspec}\NormalTok{(}\AttributeTok{variance.model =} \FunctionTok{list}\NormalTok{(}\AttributeTok{model =} \StringTok{"sGARCH"}\NormalTok{, }\AttributeTok{garchOrder =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)), }\AttributeTok{mean.model =} \FunctionTok{list}\NormalTok{(}\AttributeTok{armaOrder =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)))}
+\NormalTok{fit\_arch }\OtherTok{\textless{}{-}} \FunctionTok{ugarchfit}\NormalTok{(}\AttributeTok{spec =}\NormalTok{ spec\_arch, }\AttributeTok{data =}\NormalTok{ hudco\_returns)}
+\FunctionTok{print}\NormalTok{(fit\_arch)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## *---------------------------------*
+## *          GARCH Model Fit        *
+## *---------------------------------*
+## 
+## Conditional Variance Dynamics    
+## -----------------------------------
+## GARCH Model  : sGARCH(1,0)
+## Mean Model   : ARFIMA(0,0,0)
+## Distribution : norm 
+## 
+## Optimal Parameters
+## ------------------------------------
+##          Estimate  Std. Error  t value Pr(>|t|)
+## mu     -10.392723    0.006357  -1634.8        0
+## omega    0.057451    0.000022   2568.1        0
+## alpha1   0.830194    0.000323   2572.8        0
+## 
+## Robust Standard Errors:
+##          Estimate  Std. Error   t value Pr(>|t|)
+## mu     -10.392723    664.9378 -0.015630  0.98753
+## omega    0.057451      2.5882  0.022197  0.98229
+## alpha1   0.830194     37.3221  0.022244  0.98225
+## 
+## LogLikelihood : -5251.843 
+## 
+## Information Criteria
+## ------------------------------------
+##                    
+## Akaike       8.5099
+## Bayes        8.5223
+## Shibata      8.5099
+## Hannan-Quinn 8.5145
+## 
+## Weighted Ljung-Box Test on Standardized Residuals
+## ------------------------------------
+##                         statistic p-value
+## Lag[1]                      1.956  0.1619
+## Lag[2*(p+q)+(p+q)-1][2]     2.008  0.2615
+## Lag[4*(p+q)+(p+q)-1][5]     2.145  0.5846
+## d.o.f=0
+## H0 : No serial correlation
+## 
+## Weighted Ljung-Box Test on Standardized Squared Residuals
+## ------------------------------------
+##                         statistic p-value
+## Lag[1]                    0.00878  0.9253
+## Lag[2*(p+q)+(p+q)-1][2]   0.01261  0.9872
+## Lag[4*(p+q)+(p+q)-1][5]   0.02169  0.9999
+## d.o.f=1
+## 
+## Weighted ARCH LM Tests
+## ------------------------------------
+##             Statistic Shape Scale P-Value
+## ARCH Lag[2]  0.007643 0.500 2.000  0.9303
+## ARCH Lag[4]  0.014875 1.397 1.611  0.9988
+## ARCH Lag[6]  0.020950 2.222 1.500  1.0000
+## 
+## Nyblom stability test
+## ------------------------------------
+## Joint Statistic:  8.6299
+## Individual Statistics:             
+## mu     0.0251
+## omega  0.0251
+## alpha1 0.0251
+## 
+## Asymptotic Critical Values (10% 5% 1%)
+## Joint Statistic:          0.846 1.01 1.35
+## Individual Statistic:     0.35 0.47 0.75
+## 
+## Sign Bias Test
+## ------------------------------------
+##                      t-value       prob sig
+## Sign Bias            59.1436  0.000e+00 ***
+## Negative Sign Bias   40.0124 6.753e-225 ***
+## Positive Sign Bias    0.5203  6.029e-01    
+## Joint Effect       3667.6782  0.000e+00 ***
+## 
+## 
+## Adjusted Pearson Goodness-of-Fit Test:
+## ------------------------------------
+##   group statistic p-value(g-1)
+## 1    20      3734            0
+## 2    30      3875            0
+## 3    40      3854            0
+## 4    50      3906            0
+## 
+## 
+## Elapsed time : 0.1504972
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the conditional volatility from the ARCH model}
+\FunctionTok{plot}\NormalTok{(fit\_arch, }\AttributeTok{which =} \DecValTok{3}\NormalTok{, }\AttributeTok{main =} \StringTok{"Conditional Volatility (ARCH Model)"}\NormalTok{, }
+     \AttributeTok{col =} \StringTok{"purple"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Forecast 3{-}month (approximately 60 trading days) volatility}
+\NormalTok{forecast\_arch }\OtherTok{\textless{}{-}} \FunctionTok{ugarchforecast}\NormalTok{(fit\_arch, }\AttributeTok{n.ahead =} \DecValTok{60}\NormalTok{)}
+\NormalTok{sigma\_forecast\_arch }\OtherTok{\textless{}{-}} \FunctionTok{sigma}\NormalTok{(forecast\_arch)}
+
+\CommentTok{\# Plot the forecasted volatility from the ARCH model}
+\FunctionTok{plot}\NormalTok{(sigma\_forecast\_arch, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Forecasted Volatility for 3 Months (ARCH)"}\NormalTok{, }
+     \AttributeTok{ylab =} \StringTok{"Volatility"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Days"}\NormalTok{, }\AttributeTok{col =} \StringTok{"purple"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Step 7: Fit a GARCH Model and Plot Conditional Volatility}
+\NormalTok{spec\_garch }\OtherTok{\textless{}{-}} \FunctionTok{ugarchspec}\NormalTok{(}\AttributeTok{variance.model =} \FunctionTok{list}\NormalTok{(}\AttributeTok{model =} \StringTok{"sGARCH"}\NormalTok{, }\AttributeTok{garchOrder =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{)), }\AttributeTok{mean.model =} \FunctionTok{list}\NormalTok{(}\AttributeTok{armaOrder =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)))}
+\NormalTok{fit\_garch }\OtherTok{\textless{}{-}} \FunctionTok{ugarchfit}\NormalTok{(}\AttributeTok{spec =}\NormalTok{ spec\_garch, }\AttributeTok{data =}\NormalTok{ hudco\_returns)}
+\FunctionTok{print}\NormalTok{(fit\_garch)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## *---------------------------------*
+## *          GARCH Model Fit        *
+## *---------------------------------*
+## 
+## Conditional Variance Dynamics    
+## -----------------------------------
+## GARCH Model  : sGARCH(1,1)
+## Mean Model   : ARFIMA(0,0,0)
+## Distribution : norm 
+## 
+## Optimal Parameters
+## ------------------------------------
+##         Estimate  Std. Error  t value Pr(>|t|)
+## mu      0.089249    0.071355   1.2508 0.211017
+## omega   0.180256    0.072914   2.4722 0.013430
+## alpha1  0.078102    0.019332   4.0401 0.000053
+## beta1   0.907567    0.022777  39.8450 0.000000
+## 
+## Robust Standard Errors:
+##         Estimate  Std. Error  t value Pr(>|t|)
+## mu      0.089249    0.080690  1.10607  0.26870
+## omega   0.180256    0.209279  0.86132  0.38906
+## alpha1  0.078102    0.053502  1.45979  0.14435
+## beta1   0.907567    0.069892 12.98531  0.00000
+## 
+## LogLikelihood : -2984.426 
+## 
+## Information Criteria
+## ------------------------------------
+##                    
+## Akaike       4.8396
+## Bayes        4.8561
+## Shibata      4.8395
+## Hannan-Quinn 4.8458
+## 
+## Weighted Ljung-Box Test on Standardized Residuals
+## ------------------------------------
+##                         statistic p-value
+## Lag[1]                      4.623 0.03154
+## Lag[2*(p+q)+(p+q)-1][2]     4.632 0.05103
+## Lag[4*(p+q)+(p+q)-1][5]     8.399 0.02345
+## d.o.f=0
+## H0 : No serial correlation
+## 
+## Weighted Ljung-Box Test on Standardized Squared Residuals
+## ------------------------------------
+##                         statistic p-value
+## Lag[1]                  0.0007245  0.9785
+## Lag[2*(p+q)+(p+q)-1][5] 0.3680302  0.9760
+## Lag[4*(p+q)+(p+q)-1][9] 1.3344011  0.9680
+## d.o.f=2
+## 
+## Weighted ARCH LM Tests
+## ------------------------------------
+##             Statistic Shape Scale P-Value
+## ARCH Lag[3]    0.0114 0.500 2.000  0.9150
+## ARCH Lag[5]    0.1993 1.440 1.667  0.9657
+## ARCH Lag[7]    1.2871 2.315 1.543  0.8629
+## 
+## Nyblom stability test
+## ------------------------------------
+## Joint Statistic:  0.6691
+## Individual Statistics:              
+## mu     0.35950
+## omega  0.18754
+## alpha1 0.09687
+## beta1  0.11701
+## 
+## Asymptotic Critical Values (10% 5% 1%)
+## Joint Statistic:          1.07 1.24 1.6
+## Individual Statistic:     0.35 0.47 0.75
+## 
+## Sign Bias Test
+## ------------------------------------
+##                    t-value   prob sig
+## Sign Bias           1.0582 0.2902    
+## Negative Sign Bias  0.6599 0.5094    
+## Positive Sign Bias  0.1117 0.9111    
+## Joint Effect        1.2737 0.7354    
+## 
+## 
+## Adjusted Pearson Goodness-of-Fit Test:
+## ------------------------------------
+##   group statistic p-value(g-1)
+## 1    20     144.4    2.601e-21
+## 2    30     183.4    2.399e-24
+## 3    40     191.8    4.577e-22
+## 4    50     218.9    2.475e-23
+## 
+## 
+## Elapsed time : 0.06017494
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plot the conditional volatility from the GARCH model}
+\FunctionTok{plot}\NormalTok{(fit\_garch, }\AttributeTok{which =} \DecValTok{3}\NormalTok{, }\AttributeTok{main =} \StringTok{"Conditional Volatility (GARCH Model)"}\NormalTok{, }
+     \AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Forecast 3{-}month (approximately 60 trading days) volatility}
+\NormalTok{forecast\_garch }\OtherTok{\textless{}{-}} \FunctionTok{ugarchforecast}\NormalTok{(fit\_garch, }\AttributeTok{n.ahead =} \DecValTok{60}\NormalTok{)}
+\NormalTok{sigma\_forecast\_garch }\OtherTok{\textless{}{-}} \FunctionTok{sigma}\NormalTok{(forecast\_garch)}
+
+\CommentTok{\# Plot the forecasted volatility from the GARCH model}
+\FunctionTok{plot}\NormalTok{(sigma\_forecast\_garch, }\AttributeTok{type =} \StringTok{"l"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Forecasted Volatility for 3 Months (GARCH)"}\NormalTok{, }
+     \AttributeTok{ylab =} \StringTok{"Volatility"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Days"}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Additional Visualizations: ACF and PACF plots of the returns}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\FunctionTok{acf}\NormalTok{(hudco\_returns, }\AttributeTok{main =} \StringTok{"ACF of HUDCO Returns (Adjusted Prices)"}\NormalTok{, }\AttributeTok{col =} \StringTok{"darkblue"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{pacf}\NormalTok{(hudco\_returns, }\AttributeTok{main =} \StringTok{"PACF of HUDCO Returns (Adjusted Prices)"}\NormalTok{, }\AttributeTok{col =} \StringTok{"darkred"}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ARCH-and-GARCH_files/figure-latex/unnamed-chunk-1-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
